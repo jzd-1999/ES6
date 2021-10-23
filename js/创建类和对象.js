@@ -20,7 +20,7 @@ window.addEventListener('load', function () {
         };
     }
     class animate  extends Star{
-        constructor() {
+        constructor(data) {
             super(data);
             this.data = data
         }
