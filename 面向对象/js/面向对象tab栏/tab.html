@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="../../../font/iconfont.css">
     <style>
         * {
             margin: 0;
@@ -18,9 +19,10 @@
             width: 500px;
             height: 400px;
             margin: 20px auto;
-            border: 1px solid #666666;
+            border: 1px solid coral;
         }
         .first_nav{
+            position: relative;
             background-color: deepskyblue;
         }
         .first_nav ul::after{
@@ -28,12 +30,53 @@
             display: block;
             clear: both;
         }
+        .add{
+            position: absolute;
+            right: 0;
+            top: 0;
+            background-color: red;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+        }
+        .add .icon-tianjia{
+            font-size: 25px;
+            color: black;
+        }
 
         li{
+            position: relative;
             float: left;
             width: 60px;
             height: 30px;
+            margin-left: -1px;
+            line-height: 30px;
+            text-align: center;
         }
+        .li_active{
+            background-color: #0086b3;
+            color: white;
+        }
+        li i{
+            position: absolute;
+            top: -8px;
+            right: 0;
+            color: white;
+            border-radius: 50%;
+        }
+        .icon-quxiao{
+            font-size: 10px;
+        }
+        section{
+            display: none;
+        }
+        .con_active{
+            display: block;
+            padding: 10px;
+        }
+
+
     </style>
 </head>
 <body>
@@ -41,11 +84,18 @@
 <div id="tab">
     <nav class="first_nav">
         <ul>
-            <li class="li_active"><span>测试1</span></li>
-            <li><span>测试2</span></li>
-            <li><span>测试3</span></li>
+            <li class="li_active"><span>测试1</span><i class="iconfont icon-quxiao"></i></li>
+            <li><span>测试2</span><i class="iconfont icon-quxiao"></i></li>
+            <li><span>测试3</span><i class="iconfont icon-quxiao"></i></li>
         </ul>
+        <div class="add"><i class="iconfont icon-tianjia"></i></div>
     </nav>
+    <div id="content">
+        <section class="con_active"><span>测试1</span></section>
+        <section><span>测试2</span></section>
+        <section><span>测试3</span></section>
+    </div>
 </div>
 </body>
+<script src="tab.js"></script>
 </html>
