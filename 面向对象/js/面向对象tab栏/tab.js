@@ -46,7 +46,7 @@ class Tab {
         that.clearClass();
         let random = Math.random();
         let li = `<li class="li_active"><span>选项卡</span><i class="iconfont icon-quxiao"></i></li>`;
-        let section = `<section class="con_active">新测试` + random + `</section>`;
+        let section = `<section class="con_active">新测试${random}</section>`;
         that.ul.insertAdjacentHTML('beforeend', li);
         that.content.insertAdjacentHTML('beforeend', section);
         that.init();
