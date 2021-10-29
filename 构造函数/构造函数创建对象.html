@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+// new 的具体执行过程：
+// 1、创建一个空的简单JavaScript对象（即{}）；（在内存中创建一个新的空对象）
+// 2、为步骤1新创建的对象添加属性__proto__，将该属性链接至构造函数的原型对象 ；（让this指向这个新的对象）
+// 3、将步骤1新创建的对象作为this的上下文 ；（执行构造函数里面的代码，给这个新对象添加属性和方法）
+// 4、如果该函数没有返回对象，则返回this。（所以构造函数里面不需要return）
+/*所以，new是怎么做到的？或者说，字面量创建的时候发生了什么，这一块网上的老哥已经分析很多了，直接上结论
+1 新建一个内部对象
+2 给这个对象指定一个原型链，对象的__proto__指向构造函数的prototype
+3 返回这个内部对象*/
+function TestObj(num) {
+    this.num = num
+}
+function newFun(cont, ...args) {
+    //cont是构造函数，args是构造函数的所需参数
+    // 新建一个对象，new出来返回的就是这个
+    let obj = Object.create(cont.prototype);
+    // 给这个对象指定原型链，构造函数有什么，obj也会有
+
+    let result = cont.apply(obj, args)
+    //运行构造函数，把构造函数的参数挂到obj上，注意是obj
+    //
+    return result instanceof Object ? result : obj
+}
+const test1 = newFun(TestObj,1)
+
+    function Star(uname, age) {
+        this.uname = uname;
+        this.age = age;
+        this.sing = function () {
+            console.log("我会唱歌")
+        }
+    }
+
+    const ldh = new Star('刘德华', 20);
+    const zxy = new Star('张学友', 23);
+    console.log(ldh);
+    ldh.sing();
+    zxy.sing();
+
+</script>
+</body>
+</html>
