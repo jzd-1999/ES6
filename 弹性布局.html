@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function a(){
+        console.log(this)
+    }
+    a();
+    a.call('a');
+    const O ={
+        name:"obj"
+    };
+    a.bind(O)();
+    setTimeout(function (){
+        console.log(this)},3000)
+</script>
+</body>
+</html>
