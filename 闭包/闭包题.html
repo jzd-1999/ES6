@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //问题1：
+    var name = "The window";
+    var object = {
+        name: "My object",
+        getNameFunc() {
+            return function () {
+                return this.name;
+            }
+        }
+    };
+    console.log(object.getNameFunc()())
+    //问题二：
+    var names = "This is Window";
+    var objects = {
+        names: "This is objects",
+        getNameFunc() {
+            var that = this;
+            return function () {
+                return that.names;
+            };
+        }
+    }
+    //产生了闭包 （使用了names）
+    console.log(objects.getNameFunc()())
+
+</script>
+</body>
+</html>
